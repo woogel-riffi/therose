@@ -1,25 +1,34 @@
 
 
-# The Rose – Umbau zu reinem HTML/CSS/JS
+# Static-Dateien in Lovable sichtbar & funktional machen
 
-## Problem
-Das Projekt ist trotz vorheriger Änderungen immer noch eine React/Vite-Anwendung. Die `index.html` referenziert `/src/main.tsx`, was nur mit dem Vite-Dev-Server funktioniert. Alle JSON/TS-Konfigurationsdateien gehören nicht auf den Webserver.
+## Das Problem
+Die drei statischen Dateien liegen im `static/`-Ordner, aber:
+1. **Lovable-Preview** zeigt weiterhin die React-App (weil `index.html` im Root `/src/main.tsx` lädt)
+2. **GitHub-Sync** synchronisiert zwar alle Dateien, aber auf deinem Host musst du wissen, welche Dateien du brauchst
+3. Der `static/`-Ordner ist in Lovable unter "Code Editor" sichtbar, aber nicht unter "Files" (das zeigt nur generierte Dokumente)
 
-## Lösung
-Kompletter Umbau zu **3 statischen Dateien**, die direkt in `htdocs` kopiert werden können:
+## Die Lösung
+Die statischen Dateien aus `static/` direkt in den **Root** des Projekts verschieben und die Lovable-`index.html` so anpassen, dass sie die statische Seite lädt statt React. So funktioniert:
+- **Lovable-Preview**: zeigt die statische Seite
+- **GitHub-Sync**: Die Dateien landen im Repo-Root und können direkt kopiert werden
 
-### Dateien für den Webserver
-1. **`index.html`** – Komplette HTML-Struktur mit allen Sektionen (Nav, Hero, About, Apartment, Excursions, Contact, Footer), SEO-Meta-Tags, Links zu `style.css` und `script.js`
-2. **`style.css`** – Gesamtes Styling: CSS-Variablen für Farben (Cream/Dark Green/Gold), Google Fonts (Playfair Display + Inter), responsive Grid/Flexbox, Mobile-Hamburger-Menü
-3. **`script.js`** – Sprachwechsel DE/EN (Browser-Erkennung + Toggle), Mobile-Menü, Smooth-Scroll, dynamische Inhalte (Features-Liste, Ausflüge-Karten)
+### Konkrete Schritte
 
-### Inhalte
-Alle bestehenden Texte und Übersetzungen aus `src/i18n/translations.ts` werden übernommen (inkl. der kürzlich aktualisierten Ausflüge-Texte). Design bleibt identisch zum aktuellen Look.
+1. **`index.html` im Root ersetzen** — Den Inhalt von `static/index.html` in die Root-`index.html` übernehmen (React-Script-Tag entfernen)
 
-### Deployment-Anleitung
-Nur diese 3 Dateien in den `htdocs`-Ordner kopieren – fertig. Kein `npm install`, kein Build.
+2. **`style.css` ins Root verschieben** — Von `static/style.css` nach `style.css` im Root
 
-### Technisch
-- Die React-Dateien (`src/`, `package.json`, `vite.config.ts` etc.) bleiben im Repo für die Lovable-Vorschau erhalten
-- Die 3 statischen Dateien werden im Root erstellt und sind unabhängig vom React-Stack
+3. **`script.js` ins Root verschieben** — Von `static/script.js` nach `script.js` im Root
+
+4. **Vite-Config anpassen** — Damit der Vite-Dev-Server die statischen Dateien korrekt ausliefert (CSS/JS als static assets)
+
+### Ergebnis
+- Die Lovable-Preview zeigt die statische Webseite
+- Via GitHub werden `index.html`, `style.css` und `script.js` synchronisiert
+- Auf deinem Host kopierst du nur diese 3 Dateien in `htdocs`
+- Die React-Quelldateien in `src/` bleiben im Repo, stören aber nicht
+
+### Wichtig
+Die Lovable-Preview nutzt Vite als Dev-Server. Vite kann statische HTML-Dateien ausliefern, aber wir müssen sicherstellen, dass die CSS- und JS-Referenzen (`style.css`, `script.js`) korrekt aufgelöst werden. Dazu wird ggf. die Vite-Config minimal angepasst.
 
