@@ -10,7 +10,8 @@ const Navigation = () => {
 
   const links = [
     { href: "#about", label: t.about[lang] },
-    { href: "#apartment", label: t.apartment[lang] },
+    { href: "#stay", label: t.stay[lang] },
+    { href: "#workshops", label: t.workshops[lang] },
     { href: "#excursions", label: t.excursions[lang] },
     { href: "#contact", label: t.contact[lang] },
   ];

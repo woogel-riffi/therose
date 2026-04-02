@@ -7,7 +7,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Placeholder background */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-primary/10 to-background" />
       <div
         className="absolute inset-0 opacity-30"
@@ -33,7 +32,7 @@ const HeroSection = () => {
           {t.subtitle[lang]}
         </p>
         <a
-          href="#apartment"
+          href="#stay"
           className="inline-block px-8 py-3 bg-primary text-primary-foreground font-medium text-sm tracking-wide rounded-sm hover:bg-primary/90 transition-colors"
         >
           {t.cta[lang]}
