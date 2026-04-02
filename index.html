@@ -1,160 +1,26 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Rose – Gästehaus in Rifferswil, Schweiz</title>
-  <meta name="description" content="The Rose ist ein liebevoll renoviertes Fachwerkhaus im englischen Stil in Rifferswil, Schweiz. Mieten Sie unser Gäste-Apartment für Übernachtungen oder Workshops." />
-  <meta name="author" content="The Rose" />
-  <link rel="canonical" href="https://therose.riffi.ch" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Rose – Gästehaus in Rifferswil, Schweiz</title>
+    <meta name="description" content="The Rose ist ein liebevoll renoviertes Fachwerkhaus im englischen Stil in Rifferswil, Schweiz. Mieten Sie unser Gäste-Apartment für Übernachtungen oder Workshops." />
+    <meta name="author" content="The Rose" />
+    <link rel="canonical" href="https://therose.riffi.ch" />
 
-  <meta property="og:title" content="The Rose – Gästehaus in Rifferswil" />
-  <meta property="og:description" content="Ein liebevoll renoviertes Fachwerkhaus im englischen Stil mit Gäste-Apartment. Rifferswil, Schweiz." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://therose.riffi.ch" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200&q=80" />
+    <meta property="og:title" content="The Rose – Gästehaus in Rifferswil" />
+    <meta property="og:description" content="Ein liebevoll renoviertes Fachwerkhaus im englischen Stil mit Gäste-Apartment. Rifferswil, Schweiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://therose.riffi.ch" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200&q=80" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The Rose – Gästehaus in Rifferswil" />
-  <meta name="twitter:description" content="Fachwerkhaus im englischen Stil mit Gäste-Apartment in Rifferswil, Schweiz." />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200&q=80" />
-
-  <link rel="stylesheet" href="/style.css" />
-  <script src="/script.js" defer></script>
-</head>
-<body>
-
-  <!-- Navigation -->
-  <nav id="nav" class="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">The Rose</a>
-
-      <div class="nav-links" id="nav-links">
-        <a href="#about" data-i18n="nav.about" onclick="closeMenu()">Über das Haus</a>
-        <a href="#apartment" data-i18n="nav.apartment" onclick="closeMenu()">Gäste-Apartment</a>
-        <a href="#excursions" data-i18n="nav.excursions" onclick="closeMenu()">Ausflüge</a>
-        <a href="#contact" data-i18n="nav.contact" onclick="closeMenu()">Kontakt</a>
-      </div>
-
-      <div class="nav-actions">
-        <button class="lang-toggle" id="lang-toggle" onclick="toggleLanguage()">EN</button>
-        <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
-          <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-          <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1920&q=80')"></div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <span class="divider"></span>
-        <h1>The Rose</h1>
-        <p class="hero-location">Rifferswil, Switzerland</p>
-        <p class="hero-subtitle" data-i18n="hero.subtitle">Ein liebevoll renoviertes Fachwerkhaus im Herzen von Rifferswil</p>
-        <a href="#apartment" class="btn" data-i18n="hero.cta">Apartment entdecken</a>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section">
-      <div class="container narrow">
-        <div class="section-header">
-          <span class="divider"></span>
-          <h2 data-i18n="about.title">Über das Haus</h2>
-          <span class="divider"></span>
-        </div>
-        <div class="about-grid">
-          <div class="about-image">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="The Rose - Fachwerkhaus" loading="lazy" />
-          </div>
-          <div class="about-text">
-            <p data-i18n="about.p1">The Rose ist ein charmantes Fachwerkhaus, das mit viel Liebe zum Detail im englischen Stil renoviert wurde. Das historische Gebäude verbindet traditionelle Schweizer Architektur mit der Eleganz eines englischen Landhauses.</p>
-            <p data-i18n="about.p2">Gelegen im malerischen Dorf Rifferswil im Kanton Zürich, bietet The Rose einen atemberaubenden Blick über die Berge und den Zugersee. Die ruhige Lage inmitten der Natur lädt zum Entspannen und Geniessen ein.</p>
-            <p data-i18n="about.p3">Jeder Raum erzählt seine eigene Geschichte – von den originalen Holzbalken bis zu den sorgfältig ausgewählten Einrichtungsgegenständen, die dem Haus seinen einzigartigen Charakter verleihen.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Apartment -->
-    <section id="apartment" class="section bg-card">
-      <div class="container">
-        <div class="section-header">
-          <span class="divider"></span>
-          <h2 data-i18n="apartment.title">Gäste-Apartment</h2>
-          <span class="divider"></span>
-        </div>
-        <p class="section-intro" data-i18n="apartment.intro">Unser gemütliches Gäste-Apartment bietet Ihnen einen stilvollen Rückzugsort – ob für einen erholsamen Kurzurlaub oder einen inspirierenden Workshop.</p>
-
-        <div class="gallery">
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80" alt="Apartment 1" loading="lazy" /></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Apartment 2" loading="lazy" /></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=600&q=80" alt="Apartment 3" loading="lazy" /></div>
-        </div>
-
-        <div class="cards-row">
-          <div class="card">
-            <h3 data-i18n="apartment.stay.title">Übernachten</h3>
-            <p data-i18n="apartment.stay.desc">Geniessen Sie die Ruhe des Dorfes und wachen Sie mit Blick auf die Berge auf. Das Apartment ist komplett ausgestattet mit Küche, Bad und gemütlichem Wohn-/Schlafbereich.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="apartment.workshop.title">Workshops</h3>
-            <p data-i18n="apartment.workshop.desc">Der lichtdurchflutete Raum eignet sich hervorragend für kreative Workshops, kleine Seminare oder Retreats. Fragen Sie uns nach verfügbaren Terminen.</p>
-          </div>
-        </div>
-
-        <div class="features" id="features-list"></div>
-      </div>
-    </section>
-
-    <!-- Excursions -->
-    <section id="excursions" class="section">
-      <div class="container narrow">
-        <div class="section-header">
-          <span class="divider"></span>
-          <h2 data-i18n="excursions.title">Ausflüge &amp; Tipps</h2>
-          <span class="divider"></span>
-        </div>
-        <p class="section-intro" data-i18n="excursions.intro">Rifferswil und die Umgebung bieten zahlreiche Möglichkeiten für unvergessliche Ausflüge.</p>
-        <div class="excursions-grid" id="excursions-list"></div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section bg-card">
-      <div class="container narrow text-center">
-        <div class="section-header">
-          <span class="divider"></span>
-          <h2 data-i18n="contact.title">Kontakt &amp; Buchung</h2>
-          <span class="divider"></span>
-        </div>
-        <p class="section-intro" data-i18n="contact.intro">Wir freuen uns auf Ihre Anfrage! Kontaktieren Sie uns für Reservierungen oder Fragen.</p>
-        <div class="contact-actions">
-          <a href="mailto:info@therose.riffi.ch" class="btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            <span data-i18n="contact.email">E-Mail schreiben</span>
-          </a>
-        </div>
-        <div class="contact-address">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>The Rose, Rifferswil, Schweiz</span>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <span class="nav-logo">The Rose</span>
-      <span id="footer-rights">© 2026 The Rose. Alle Rechte vorbehalten.</span>
-    </div>
-  </footer>
-
-</body>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Rose – Gästehaus in Rifferswil" />
+    <meta name="twitter:description" content="Fachwerkhaus im englischen Stil mit Gäste-Apartment in Rifferswil, Schweiz." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200&q=80" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
