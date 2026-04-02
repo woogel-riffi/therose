@@ -1,21 +1,26 @@
 // Translations
 var T = {
   "nav.about":      { de: "Über das Haus",   en: "About the House" },
-  "nav.apartment":  { de: "Gäste-Apartment", en: "Guest Apartment" },
-  "nav.excursions": { de: "Ausflüge",        en: "Excursions" },
-  "nav.contact":    { de: "Kontakt",          en: "Contact" },
+  "nav.stay":       { de: "Übernachten",      en: "Stay" },
+  "nav.workshops":  { de: "Workshops",        en: "Workshops" },
+  "nav.excursions": { de: "Ausflüge",         en: "Excursions" },
+  "nav.contact":    { de: "Kontakt",           en: "Contact" },
   "hero.subtitle":  { de: "Ein liebevoll renoviertes Fachwerkhaus im Herzen von Rifferswil", en: "A lovingly renovated timber-frame house in the heart of Rifferswil" },
   "hero.cta":       { de: "Apartment entdecken", en: "Discover the Apartment" },
   "about.title":    { de: "Über das Haus",    en: "About the House" },
   "about.p1":       { de: "The Rose ist ein charmantes Fachwerkhaus, das mit viel Liebe zum Detail im englischen Stil renoviert wurde. Das historische Gebäude verbindet traditionelle Schweizer Architektur mit der Eleganz eines englischen Landhauses.", en: "The Rose is a charming timber-frame house that has been lovingly renovated in the English style with great attention to detail. The historic building combines traditional Swiss architecture with the elegance of an English country house." },
   "about.p2":       { de: "Gelegen im malerischen Dorf Rifferswil im Kanton Zürich, bietet The Rose einen atemberaubenden Blick über die Berge und den Zugersee. Die ruhige Lage inmitten der Natur lädt zum Entspannen und Geniessen ein.", en: "Located in the picturesque village of Rifferswil in the canton of Zurich, The Rose offers a breathtaking view over the mountains and Lake Zug. The tranquil setting amidst nature invites you to relax and enjoy." },
   "about.p3":       { de: "Jeder Raum erzählt seine eigene Geschichte – von den originalen Holzbalken bis zu den sorgfältig ausgewählten Einrichtungsgegenständen, die dem Haus seinen einzigartigen Charakter verleihen.", en: "Every room tells its own story – from the original wooden beams to the carefully selected furnishings that give the house its unique character." },
-  "apartment.title":         { de: "Gäste-Apartment", en: "Guest Apartment" },
-  "apartment.intro":         { de: "Unser gemütliches Gäste-Apartment bietet Ihnen einen stilvollen Rückzugsort – ob für einen erholsamen Kurzurlaub oder einen inspirierenden Workshop.", en: "Our cosy guest apartment offers you a stylish retreat – whether for a relaxing short break or an inspiring workshop." },
-  "apartment.stay.title":    { de: "Übernachten", en: "Overnight Stay" },
-  "apartment.stay.desc":     { de: "Geniessen Sie die Ruhe des Dorfes und wachen Sie mit Blick auf die Berge auf. Das Apartment ist komplett ausgestattet mit Küche, Bad und gemütlichem Wohn-/Schlafbereich.", en: "Enjoy the tranquility of the village and wake up to mountain views. The apartment is fully equipped with kitchen, bathroom, and a cosy living/sleeping area." },
-  "apartment.workshop.title":{ de: "Workshops", en: "Workshops" },
-  "apartment.workshop.desc": { de: "Der lichtdurchflutete Raum eignet sich hervorragend für kreative Workshops, kleine Seminare oder Retreats. Fragen Sie uns nach verfügbaren Terminen.", en: "The light-filled space is perfect for creative workshops, small seminars, or retreats. Ask us about available dates." },
+  "stay.title":              { de: "Übernachten", en: "Stay" },
+  "stay.intro":              { de: "Unser gemütliches Gäste-Apartment bietet Ihnen einen stilvollen Rückzugsort für einen erholsamen Kurzurlaub.", en: "Our cosy guest apartment offers you a stylish retreat for a relaxing short break." },
+  "stay.desc.title":         { de: "Übernachten", en: "Overnight Stay" },
+  "stay.desc.text":          { de: "Geniessen Sie die Ruhe des Dorfes und wachen Sie mit Blick auf die Berge auf. Das Apartment ist komplett ausgestattet mit Küche, Bad und gemütlichem Wohn-/Schlafbereich.", en: "Enjoy the tranquility of the village and wake up to mountain views. The apartment is fully equipped with kitchen, bathroom, and a cosy living/sleeping area." },
+  "workshops.title":         { de: "Workshops", en: "Workshops" },
+  "workshops.intro":         { de: "Unser lichtdurchfluteter Raum eignet sich hervorragend für kreative Workshops, Seminare oder Retreats mit bis zu 15 Personen.", en: "Our light-filled space is perfect for creative workshops, seminars, or retreats with up to 15 participants." },
+  "workshops.space.title":   { de: "Der Raum", en: "The Space" },
+  "workshops.space.desc":    { de: "Der lichtdurchflutete Raum eignet sich hervorragend für kreative Workshops, kleine Seminare oder Retreats. Fragen Sie uns nach verfügbaren Terminen.", en: "The light-filled space is perfect for creative workshops, small seminars, or retreats. Ask us about available dates." },
+  "workshops.catering.title":{ de: "Catering", en: "Catering" },
+  "workshops.catering.desc": { de: "Catering kann auf Wunsch organisiert werden. Sprechen Sie uns an – wir stellen gerne ein passendes Angebot zusammen.", en: "Catering can be arranged upon request. Get in touch – we'll be happy to put together a suitable offer." },
   "excursions.title":        { de: "Ausflüge & Tipps", en: "Excursions & Tips" },
   "excursions.intro":        { de: "Rifferswil und die Umgebung bieten zahlreiche Möglichkeiten für unvergessliche Ausflüge.", en: "Rifferswil and its surroundings offer numerous opportunities for unforgettable excursions." },
   "contact.title":           { de: "Kontakt & Buchung", en: "Contact & Booking" },
@@ -24,9 +29,14 @@ var T = {
   "footer.rights":           { de: "Alle Rechte vorbehalten.", en: "All rights reserved." }
 };
 
-var features = {
+var stayFeatures = {
   de: ["Voll ausgestattete Küche", "Eigenes Badezimmer", "Kostenloses WLAN", "Bergblick", "Ruhige Lage", "Parkplatz"],
   en: ["Fully equipped kitchen", "Private bathroom", "Free Wi-Fi", "Mountain views", "Quiet location", "Parking"]
+};
+
+var workshopFeatures = {
+  de: ["Platz für bis zu 15 Personen", "Catering auf Anfrage", "Kostenloses WLAN", "Parkplatz", "Ruhige Lage", "Flexible Raumgestaltung"],
+  en: ["Space for up to 15 participants", "Catering on request", "Free Wi-Fi", "Parking", "Quiet location", "Flexible room setup"]
 };
 
 var excursions = [
@@ -54,12 +64,21 @@ function applyLanguage() {
   document.getElementById("footer-rights").textContent = "© " + new Date().getFullYear() + " The Rose. " + T["footer.rights"][lang];
 
   renderFeatures();
+  renderWorkshopFeatures();
   renderExcursions();
 }
 
 function renderFeatures() {
-  var list = features[lang];
+  var list = stayFeatures[lang];
   var el = document.getElementById("features-list");
+  el.innerHTML = list.map(function(f) {
+    return '<div class="feature-item"><span class="feature-check">' + checkSVG + '</span><span>' + f + '</span></div>';
+  }).join("");
+}
+
+function renderWorkshopFeatures() {
+  var list = workshopFeatures[lang];
+  var el = document.getElementById("workshop-features-list");
   el.innerHTML = list.map(function(f) {
     return '<div class="feature-item"><span class="feature-check">' + checkSVG + '</span><span>' + f + '</span></div>';
   }).join("");

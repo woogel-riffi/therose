@@ -2,12 +2,12 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { Check } from "lucide-react";
 
-const ApartmentSection = () => {
+const StaySection = () => {
   const { lang } = useLanguage();
-  const t = translations.apartment;
+  const t = translations.stay;
 
   return (
-    <section id="apartment" className="py-24 px-4 bg-card">
+    <section id="stay" className="py-24 px-4 bg-card">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block w-12 h-px bg-accent mb-4" />
@@ -21,7 +21,7 @@ const ApartmentSection = () => {
           {t.intro[lang]}
         </p>
 
-        {/* Image gallery placeholders */}
+        {/* Image gallery */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-16">
           {[
             "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80",
@@ -34,15 +34,10 @@ const ApartmentSection = () => {
           ))}
         </div>
 
-        {/* Stay & Workshop */}
-        <div className="grid md:grid-cols-2 gap-10 mb-16">
+        {/* Stay description */}
+        <div className="max-w-2xl mx-auto mb-16">
           <div className="p-8 border border-border rounded-sm bg-background">
-            <h3 className="font-serif text-xl font-semibold text-foreground mb-4">{t.stay.title[lang]}</h3>
-            <p className="text-muted-foreground leading-relaxed">{t.stay.desc[lang]}</p>
-          </div>
-          <div className="p-8 border border-border rounded-sm bg-background">
-            <h3 className="font-serif text-xl font-semibold text-foreground mb-4">{t.workshop.title[lang]}</h3>
-            <p className="text-muted-foreground leading-relaxed">{t.workshop.desc[lang]}</p>
+            <p className="text-muted-foreground leading-relaxed">{t.desc[lang]}</p>
           </div>
         </div>
 
@@ -60,4 +55,4 @@ const ApartmentSection = () => {
   );
 };
 
-export default ApartmentSection;
+export default StaySection;

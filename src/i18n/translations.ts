@@ -3,7 +3,8 @@ export type Language = "de" | "en";
 export const translations = {
   nav: {
     about: { de: "Über das Haus", en: "About the House" },
-    apartment: { de: "Gäste-Apartment", en: "Guest Apartment" },
+    stay: { de: "Übernachten", en: "Stay" },
+    workshops: { de: "Workshops", en: "Workshops" },
     excursions: { de: "Ausflüge", en: "Excursions" },
     contact: { de: "Kontakt", en: "Contact" },
   },
@@ -29,29 +30,44 @@ export const translations = {
       en: "Every room tells its own story – from the original wooden beams to the carefully selected furnishings that give the house its unique character.",
     },
   },
-  apartment: {
-    title: { de: "Gäste-Apartment", en: "Guest Apartment" },
+  stay: {
+    title: { de: "Übernachten", en: "Stay" },
     intro: {
-      de: "Unser gemütliches Gäste-Apartment bietet Ihnen einen stilvollen Rückzugsort – ob für einen erholsamen Kurzurlaub oder einen inspirierenden Workshop.",
-      en: "Our cosy guest apartment offers you a stylish retreat – whether for a relaxing short break or an inspiring workshop.",
+      de: "Unser gemütliches Gäste-Apartment bietet Ihnen einen stilvollen Rückzugsort für einen erholsamen Kurzurlaub.",
+      en: "Our cosy guest apartment offers you a stylish retreat for a relaxing short break.",
     },
-    stay: {
-      title: { de: "Übernachten", en: "Overnight Stay" },
-      desc: {
-        de: "Geniessen Sie die Ruhe des Dorfes und wachen Sie mit Blick auf die Berge auf. Das Apartment ist komplett ausgestattet mit Küche, Bad und gemütlichem Wohn-/Schlafbereich.",
-        en: "Enjoy the tranquility of the village and wake up to mountain views. The apartment is fully equipped with kitchen, bathroom, and a cosy living/sleeping area.",
-      },
+    desc: {
+      de: "Geniessen Sie die Ruhe des Dorfes und wachen Sie mit Blick auf die Berge auf. Das Apartment ist komplett ausgestattet mit Küche, Bad und gemütlichem Wohn-/Schlafbereich.",
+      en: "Enjoy the tranquility of the village and wake up to mountain views. The apartment is fully equipped with kitchen, bathroom, and a cosy living/sleeping area.",
     },
-    workshop: {
-      title: { de: "Workshops", en: "Workshops" },
+    features: {
+      de: ["Voll ausgestattete Küche", "Eigenes Badezimmer", "Kostenloses WLAN", "Bergblick", "Ruhige Lage", "Parkplatz"],
+      en: ["Fully equipped kitchen", "Private bathroom", "Free Wi-Fi", "Mountain views", "Quiet location", "Parking"],
+    },
+  },
+  workshops: {
+    title: { de: "Workshops", en: "Workshops" },
+    intro: {
+      de: "Unser lichtdurchfluteter Raum eignet sich hervorragend für kreative Workshops, Seminare oder Retreats mit bis zu 15 Personen.",
+      en: "Our light-filled space is perfect for creative workshops, seminars, or retreats with up to 15 participants.",
+    },
+    space: {
+      title: { de: "Der Raum", en: "The Space" },
       desc: {
         de: "Der lichtdurchflutete Raum eignet sich hervorragend für kreative Workshops, kleine Seminare oder Retreats. Fragen Sie uns nach verfügbaren Terminen.",
         en: "The light-filled space is perfect for creative workshops, small seminars, or retreats. Ask us about available dates.",
       },
     },
+    catering: {
+      title: { de: "Catering", en: "Catering" },
+      desc: {
+        de: "Catering kann auf Wunsch organisiert werden. Sprechen Sie uns an – wir stellen gerne ein passendes Angebot zusammen.",
+        en: "Catering can be arranged upon request. Get in touch – we'll be happy to put together a suitable offer.",
+      },
+    },
     features: {
-      de: ["Voll ausgestattete Küche", "Eigenes Badezimmer", "Kostenloses WLAN", "Bergblick", "Ruhige Lage", "Parkplatz"],
-      en: ["Fully equipped kitchen", "Private bathroom", "Free Wi-Fi", "Mountain views", "Quiet location", "Parking"],
+      de: ["Platz für bis zu 15 Personen", "Catering auf Anfrage", "Kostenloses WLAN", "Parkplatz", "Ruhige Lage", "Flexible Raumgestaltung"],
+      en: ["Space for up to 15 participants", "Catering on request", "Free Wi-Fi", "Parking", "Quiet location", "Flexible room setup"],
     },
   },
   excursions: {
