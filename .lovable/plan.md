@@ -1,33 +1,48 @@
 
 
-# Problem: Lovable injiziert automatisch React
+# Navigation und Sektionen trennen: Übernachten + Workshops
 
-Das aktuelle Root-`index.html` ist zwar reines HTML (kein Verweis auf `main.tsx`), aber **Lovable's Vite-Dev-Server injiziert automatisch den React-Einstiegspunkt**. Das ist ein Feature der Plattform und kann nicht umgangen werden. Die Lovable-Preview wird immer die React-App zeigen.
+## Was sich ändert
 
-## Realistische Lösung
+**"Gäste-Apartment"** wird zu **"Übernachten"** und die bisherige Apartment-Sektion wird zur reinen Übernachtungs-Sektion. Eine **neue Sektion "Workshops"** kommt hinzu mit eigenem Navigationspunkt.
 
-Es gibt zwei "Welten", die wir parallel pflegen:
+## Änderungen in 3 Dateien
 
-### 1. React-App fur die Lovable-Preview
-Die bestehende React-App (`src/pages/Index.tsx` mit allen Komponenten) bleibt bestehen und wird in der Lovable-Preview angezeigt. Das `index.html` bekommt wieder das `<div id="root">` und den `<script>` fur React zuruck, damit die Preview funktioniert.
+### 1. `static/index.html`
+- Nav-Link `#apartment` → `#stay`, Text "Übernachten"
+- Neuer Nav-Link `#workshops` nach "Übernachten"
+- Hero-CTA Link von `#apartment` zu `#stay`
+- **Apartment-Sektion** (`id="apartment"`) umbenennen zu `id="stay"`:
+  - Titel → "Übernachten"
+  - Intro-Text anpassen (nur Übernachtung)
+  - Workshop-Card entfernen (nur Stay-Card behalten)
+- **Neue Sektion** `id="workshops"` einfügen (nach Stay, vor Excursions):
+  - Eigener Section-Header "Workshops"
+  - Beschreibung: Raum für bis zu 15 Personen, kreative Workshops, Seminare, Retreats
+  - Catering kann organisiert werden
+  - Features-Liste für Workshops (Platz für 15 Personen, Catering, WLAN, Parkplatz, etc.)
 
-### 2. Statische Dateien fur Plesk/htdocs
-Die drei Dateien `static/index.html`, `static/style.css` und `static/script.js` bleiben im `static/`-Ordner. Diese sind reines HTML/CSS/JS ohne React-Abhangigkeit.
+### 2. `static/script.js`
+- Neue Übersetzungsschlüssel: `nav.stay`, `nav.workshops`, `workshops.title`, `workshops.intro`, `workshops.desc`, `workshops.catering`
+- Bestehende `nav.apartment` entfernen
+- `apartment.*`-Schlüssel umbenennen zu `stay.*`
+- Workshop-Features-Liste separat rendern
 
-### Deployment-Workflow
-Via GitHub-Sync landen alle Dateien im Repo. Fur Plesk kopierst du nur den Inhalt des `static/`-Ordners in `htdocs`:
-- `static/index.html` → `htdocs/index.html`
-- `static/style.css` → `htdocs/style.css`
-- `static/script.js` → `htdocs/script.js`
+### 3. React-Dateien (parallel pflegen)
+- `src/i18n/translations.ts` — gleiche Übersetzungsänderungen
+- `src/components/Navigation.tsx` — Links aktualisieren
+- `src/components/ApartmentSection.tsx` → Umbenennen/anpassen zu Stay-Sektion
+- Neue `src/components/WorkshopSection.tsx`
+- `src/pages/Index.tsx` — Workshop-Sektion einfügen
 
-### Konkrete Schritte
-1. **`index.html` im Root zurucksetzen** — React-Entry-Point (`<div id="root">` + `<script src="/src/main.tsx">`) wieder einfugen, damit die Lovable-Preview funktioniert
-2. **`vite.config.ts` zurucksetzen** — `publicDir` wieder auf Standard setzen
-3. **Statische Dateien aktualisieren** — Sicherstellen, dass `static/index.html`, `static/style.css` und `static/script.js` die aktuellsten Texte enthalten (inkl. Turlersee, Seleger Moor etc.)
-4. **Root `style.css` und `script.js` entfernen** — Diese gehoren nur in den `static/`-Ordner, nicht ins Root (sonst Konflikte mit Vite)
+## Neue Inhalte (DE/EN)
 
-### Ergebnis
-- Lovable-Preview zeigt die React-Version (sieht identisch aus)
-- GitHub-Sync enthalt den `static/`-Ordner mit den 3 Deployment-Dateien
-- Fur Plesk kopierst du nur die 3 Dateien aus `static/`
+**Workshops-Sektion:**
+- Titel: "Workshops" / "Workshops"
+- Intro DE: "Unser lichtdurchfluteter Raum eignet sich hervorragend für kreative Workshops, Seminare oder Retreats mit bis zu 15 Personen."
+- Intro EN: "Our light-filled space is perfect for creative workshops, seminars, or retreats with up to 15 participants."
+- Catering DE: "Catering kann auf Wunsch organisiert werden."
+- Catering EN: "Catering can be arranged upon request."
+
+**Nav-Reihenfolge:** Über das Haus | Übernachten | Workshops | Ausflüge | Kontakt
 
