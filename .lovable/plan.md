@@ -1,34 +1,33 @@
 
 
-# Static-Dateien in Lovable sichtbar & funktional machen
+# Problem: Lovable injiziert automatisch React
 
-## Das Problem
-Die drei statischen Dateien liegen im `static/`-Ordner, aber:
-1. **Lovable-Preview** zeigt weiterhin die React-App (weil `index.html` im Root `/src/main.tsx` lädt)
-2. **GitHub-Sync** synchronisiert zwar alle Dateien, aber auf deinem Host musst du wissen, welche Dateien du brauchst
-3. Der `static/`-Ordner ist in Lovable unter "Code Editor" sichtbar, aber nicht unter "Files" (das zeigt nur generierte Dokumente)
+Das aktuelle Root-`index.html` ist zwar reines HTML (kein Verweis auf `main.tsx`), aber **Lovable's Vite-Dev-Server injiziert automatisch den React-Einstiegspunkt**. Das ist ein Feature der Plattform und kann nicht umgangen werden. Die Lovable-Preview wird immer die React-App zeigen.
 
-## Die Lösung
-Die statischen Dateien aus `static/` direkt in den **Root** des Projekts verschieben und die Lovable-`index.html` so anpassen, dass sie die statische Seite lädt statt React. So funktioniert:
-- **Lovable-Preview**: zeigt die statische Seite
-- **GitHub-Sync**: Die Dateien landen im Repo-Root und können direkt kopiert werden
+## Realistische Lösung
+
+Es gibt zwei "Welten", die wir parallel pflegen:
+
+### 1. React-App fur die Lovable-Preview
+Die bestehende React-App (`src/pages/Index.tsx` mit allen Komponenten) bleibt bestehen und wird in der Lovable-Preview angezeigt. Das `index.html` bekommt wieder das `<div id="root">` und den `<script>` fur React zuruck, damit die Preview funktioniert.
+
+### 2. Statische Dateien fur Plesk/htdocs
+Die drei Dateien `static/index.html`, `static/style.css` und `static/script.js` bleiben im `static/`-Ordner. Diese sind reines HTML/CSS/JS ohne React-Abhangigkeit.
+
+### Deployment-Workflow
+Via GitHub-Sync landen alle Dateien im Repo. Fur Plesk kopierst du nur den Inhalt des `static/`-Ordners in `htdocs`:
+- `static/index.html` → `htdocs/index.html`
+- `static/style.css` → `htdocs/style.css`
+- `static/script.js` → `htdocs/script.js`
 
 ### Konkrete Schritte
-
-1. **`index.html` im Root ersetzen** — Den Inhalt von `static/index.html` in die Root-`index.html` übernehmen (React-Script-Tag entfernen)
-
-2. **`style.css` ins Root verschieben** — Von `static/style.css` nach `style.css` im Root
-
-3. **`script.js` ins Root verschieben** — Von `static/script.js` nach `script.js` im Root
-
-4. **Vite-Config anpassen** — Damit der Vite-Dev-Server die statischen Dateien korrekt ausliefert (CSS/JS als static assets)
+1. **`index.html` im Root zurucksetzen** — React-Entry-Point (`<div id="root">` + `<script src="/src/main.tsx">`) wieder einfugen, damit die Lovable-Preview funktioniert
+2. **`vite.config.ts` zurucksetzen** — `publicDir` wieder auf Standard setzen
+3. **Statische Dateien aktualisieren** — Sicherstellen, dass `static/index.html`, `static/style.css` und `static/script.js` die aktuellsten Texte enthalten (inkl. Turlersee, Seleger Moor etc.)
+4. **Root `style.css` und `script.js` entfernen** — Diese gehoren nur in den `static/`-Ordner, nicht ins Root (sonst Konflikte mit Vite)
 
 ### Ergebnis
-- Die Lovable-Preview zeigt die statische Webseite
-- Via GitHub werden `index.html`, `style.css` und `script.js` synchronisiert
-- Auf deinem Host kopierst du nur diese 3 Dateien in `htdocs`
-- Die React-Quelldateien in `src/` bleiben im Repo, stören aber nicht
-
-### Wichtig
-Die Lovable-Preview nutzt Vite als Dev-Server. Vite kann statische HTML-Dateien ausliefern, aber wir müssen sicherstellen, dass die CSS- und JS-Referenzen (`style.css`, `script.js`) korrekt aufgelöst werden. Dazu wird ggf. die Vite-Config minimal angepasst.
+- Lovable-Preview zeigt die React-Version (sieht identisch aus)
+- GitHub-Sync enthalt den `static/`-Ordner mit den 3 Deployment-Dateien
+- Fur Plesk kopierst du nur die 3 Dateien aus `static/`
 
