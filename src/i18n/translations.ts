@@ -69,10 +69,10 @@ export const translations = {
         },
       },
       {
-        title: { de: "Zugersee", en: "Lake Zug" },
+        title: { de: "Türlersee", en: "Lake Türler" },
         desc: {
-          de: "Der Zugersee ist in wenigen Minuten erreichbar und bietet Bademöglichkeiten, Schifffahrten und malerische Uferwege.",
-          en: "Lake Zug is just a few minutes away and offers swimming, boat trips, and scenic lakeside paths.",
+          de: "5 km von Rifferswil befindet sich der Türlersee, ein geschütztes Landschafts- und Naturdenkmal. Perfekt zum Baden und wandern.",
+          en: "5 km from Rifferswil is Lake Türler, a protected landscape and natural monument. Perfect for swimming and hiking.",
         },
       },
       {
@@ -85,12 +85,12 @@ export const translations = {
       {
         title: { de: "Seleger Moor", en: "Seleger Moor" },
         desc: {
-          de: "Ein einzigartiger Natur-Erlebnispark mit Rhododendren, exotischen Pflanzen und einem idyllischen Moor – nur wenige Gehminuten entfernt.",
-          en: "A unique nature park with rhododendrons, exotic plants, and an idyllic moorland – just a few minutes' walk away.",
+          de: "Ein einzigartiger Natur-Erlebnispark mit Rhododendren, exotischen Pflanzen und einem idyllischen Moor – in Gehdistanz.",
+          en: "A unique nature park with rhododendrons, exotic plants, and an idyllic moorland – within walking distance.",
         },
       },
       {
-        title: { de: "Stadt Zug", en: "City of Zug" },
+        title: { de: "Stadt Zug und Zugersee", en: "City of Zug and Lake Zug" },
         desc: {
           de: "Die charmante Altstadt von Zug am See bietet Restaurants, Museen und eine wunderbare Promenade.",
           en: "The charming old town of Zug on the lake offers restaurants, museums, and a wonderful promenade.",
