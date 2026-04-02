@@ -1,32 +1,25 @@
 
 
-# The Rose – Webseite für ein Gästehaus in Rifferswil
+# The Rose – Umbau zu reinem HTML/CSS/JS
 
-## Überblick
-Elegante, klassische One-Pager-Webseite für "The Rose", ein renoviertes Fachwerkhaus in Rifferswil (Schweiz) mit Gäste-Apartment. Deutsch/Englisch mit automatischer Spracherkennung und Umschaltknopf.
+## Problem
+Das Projekt ist trotz vorheriger Änderungen immer noch eine React/Vite-Anwendung. Die `index.html` referenziert `/src/main.tsx`, was nur mit dem Vite-Dev-Server funktioniert. Alle JSON/TS-Konfigurationsdateien gehören nicht auf den Webserver.
 
-## Design
-- **Stil**: Elegant & klassisch – warme Farben (Cremetöne, gedämpftes Rosa, Dunkelgrün), Serifenschrift für Überschriften, dezente Akzente
-- **Farbpalette**: Creme-Hintergrund, dunkelgrüne/bordeaux Akzente, Gold-Details
-- **Typografie**: Serif-Headings (z.B. Playfair Display), Sans-Serif Body (Inter)
+## Lösung
+Kompletter Umbau zu **3 statischen Dateien**, die direkt in `htdocs` kopiert werden können:
 
-## Sektionen (One-Pager mit Scroll-Navigation)
+### Dateien für den Webserver
+1. **`index.html`** – Komplette HTML-Struktur mit allen Sektionen (Nav, Hero, About, Apartment, Excursions, Contact, Footer), SEO-Meta-Tags, Links zu `style.css` und `script.js`
+2. **`style.css`** – Gesamtes Styling: CSS-Variablen für Farben (Cream/Dark Green/Gold), Google Fonts (Playfair Display + Inter), responsive Grid/Flexbox, Mobile-Hamburger-Menü
+3. **`script.js`** – Sprachwechsel DE/EN (Browser-Erkennung + Toggle), Mobile-Menü, Smooth-Scroll, dynamische Inhalte (Features-Liste, Ausflüge-Karten)
 
-1. **Navigation** – Feste Leiste oben mit Anker-Links + DE/EN Umschaltknopf
-2. **Hero** – Grosses Platzhalter-Bild mit Hausnamen "The Rose" und Untertitel
-3. **Über das Haus** – Geschichte des Fachwerkhauses, englische Renovation, Lage in Rifferswil, Blick auf Berge & Zugersee
-4. **Gäste-Apartment** – Beschreibung, Ausstattung, Nutzung (Übernachtung / Workshops), Bildergalerie mit Platzhaltern
-5. **Ausflüge** – Liste mit Tipps: Wanderungen, Zugersee, Zürich, Zug etc. mit kurzen Beschreibungen
-6. **Kontakt & Buchung** – Mailto-Link (Platzhalter-E-Mail), Adresse, eventuell eingebettete Karte
-7. **Footer** – Copyright, nochmals Kontakt
+### Inhalte
+Alle bestehenden Texte und Übersetzungen aus `src/i18n/translations.ts` werden übernommen (inkl. der kürzlich aktualisierten Ausflüge-Texte). Design bleibt identisch zum aktuellen Look.
 
-## Sprach-System
-- Automatische Erkennung der Browser-Sprache (DE/EN)
-- Umschaltknopf in der Navigation
-- Alle Texte in beiden Sprachen als JSON/Objekt gespeichert
+### Deployment-Anleitung
+Nur diese 3 Dateien in den `htdocs`-Ordner kopieren – fertig. Kein `npm install`, kein Build.
 
-## Technisch
-- Statische React-Seite, exportierbar für htdocs-Ordner
-- Responsive Design (Mobile, Tablet, Desktop)
-- Platzhalter-Bilder via Unsplash/SVG, leicht austauschbar
+### Technisch
+- Die React-Dateien (`src/`, `package.json`, `vite.config.ts` etc.) bleiben im Repo für die Lovable-Vorschau erhalten
+- Die 3 statischen Dateien werden im Root erstellt und sind unabhängig vom React-Stack
 
